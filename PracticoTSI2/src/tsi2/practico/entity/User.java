@@ -14,10 +14,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.Email;
 
-import tsi2.practico.constants.Constants;
-
 @Entity
-@Table(name="user",schema=Constants.SCHEMA,catalog=Constants.CATALOG)
+@Table(name="usuario")
 public class User {
 	
 	@Id 
