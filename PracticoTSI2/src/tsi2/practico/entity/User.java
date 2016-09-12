@@ -1,10 +1,10 @@
 package tsi2.practico.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -16,8 +16,10 @@ import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name="usuario")
-public class User {
+public class User implements Serializable{
 	
+	private static final long serialVersionUID = -8377874527796459051L;
+
 	@Id 
 	@Column(length=16)
 	private String username;
@@ -38,11 +40,11 @@ public class User {
 	@Temporal(TemporalType.DATE)
 	private Date creationDate;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name="roleId",nullable=false)
 	private Role role;
 
-	protected User() {
+	public User() {
 		super();	
 		this.creationDate = new Date();
 	}

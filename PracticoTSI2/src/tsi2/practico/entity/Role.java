@@ -21,7 +21,7 @@ public class Role {
 	private String name;
 
 	
-	protected Role() {
+	public Role() {
 		super();
 	}
 
